@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const transactionId = urlParams.get('transaction_id') || '#123456789';
+        const amountPaid = urlParams.get('amount') || '$99.99';
+        const paymentMethod = urlParams.get('method') || 'Visa **** 1234';
+    </script>
+    
+    <div class="bg-white shadow-lg rounded-2xl p-8 max-w-md text-center animate-fade-in">
+        <div class="flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+        <h2 class="text-2xl font-semibold text-gray-800">Payment Successful!</h2>
+        <p class="text-gray-600 mt-2">Thank you for your purchase. Your transaction was completed successfully.</p>
+        
+        <div class="mt-6 bg-gray-100 p-4 rounded-lg text-left">
+            <p class="text-sm text-gray-700"><strong>Transaction ID:</strong> <span id="transaction-id"></span></p>
+            <p class="text-sm text-gray-700"><strong>Amount Paid:</strong> <span id="amount-paid"></span></p>
+            <p class="text-sm text-gray-700"><strong>Payment Method:</strong> <span id="payment-method"></span></p>
+        </div>
+        
+        <a href="https://t.me/tekamee_bot" class="mt-6 inline-block px-6 py-2 text-white bg-green-600 rounded-lg hover:bg-green-700 transition">Return to Home</a>
+    </div>
+    
+    <script>
+        document.getElementById('transaction-id').textContent = transactionId;
+        document.getElementById('amount-paid').textContent = amountPaid;
+        document.getElementById('payment-method').textContent = paymentMethod;
+    </script>
+</body>
+</html>
