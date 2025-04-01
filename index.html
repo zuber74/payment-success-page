@@ -8,7 +8,8 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
+        const fixedUrl = window.location.href.replace(/&amp;/g, '&');
+        const urlParam = new URLSearchParams(new URL(fixedUrl).search);
         const transactionId = urlParams.get('transaction_id') || '#123456789';
         const amountPaid = urlParams.get('amount') || '$99.99';
         const paymentMethod = urlParams.get('method') || 'Visa **** 1234';
